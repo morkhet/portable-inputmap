@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/portable-inputmap/btnHandler.gd" type="Script" id=1]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+[node name="Input Map Im&Ex" type="VBoxContainer"]
+material = SubResource( 1 )
+margin_right = 400.0
+margin_bottom = 400.0
+script = ExtResource( 1 )
+
+[node name="lblDesc" type="Label" parent="."]
+margin_right = 400.0
+margin_bottom = 269.0
+text = "Portable Inputmap by morkhet
+Use the \"Import\" button to import an inputmap from an existing file.
+Use the \"Export\" button to export the current inputmap to a file.
+
+Use the option field to choose the mode for the import.
+OVERRIDE means the imported value is the new value
+ONLY NEW means that only the new values are imported
+BREAK ON ERROR means that the function breaks, when a conflict is detected
+
+If you find a bug or want to contribute, please use this github repository:
+
+www.github.com/morkhet/..."
+align = 1
+autowrap = true
+
+[node name="optMode" type="OptionButton" parent="."]
+margin_top = 273.0
+margin_right = 400.0
+margin_bottom = 293.0
+text = "OVERRIDE"
+align = 1
+items = [ "OVERRIDE", null, false, 0, null, "ONLY NEW", null, false, 1, null, "BREAK ON ERROR", null, false, 2, null ]
+selected = 0
+
+[node name="btnImport" type="Button" parent="."]
+margin_top = 297.0
+margin_right = 400.0
+margin_bottom = 317.0
+size_flags_horizontal = 9
+size_flags_vertical = 9
+text = "Import"
+
+[node name="fdImport" type="FileDialog" parent="btnImport"]
+margin_right = 315.0
+margin_bottom = 130.0
+window_title = "Open a File"
+mode = 0
+access = 2
+current_dir = "/share/data/work/personal-projects/godot/PlginProject"
+current_path = "/share/data/work/personal-projects/godot/PlginProject/"
+
+[node name="btnExport" type="Button" parent="."]
+margin_top = 321.0
+margin_right = 400.0
+margin_bottom = 341.0
+text = "Export"
+
+[node name="fdExport" type="FileDialog" parent="btnExport"]
+margin_right = 315.0
+margin_bottom = 130.0
+access = 2
+current_dir = "/share/data/work/personal-projects/godot/PlginProject"
+current_path = "/share/data/work/personal-projects/godot/PlginProject/"
+
+[node name="lblStatus" type="Label" parent="."]
+margin_top = 345.0
+margin_right = 400.0
+margin_bottom = 359.0
+text = "Status: "
+
+[connection signal="pressed" from="btnImport" to="." method="_on_btnImport_pressed"]
+[connection signal="file_selected" from="btnImport/fdImport" to="." method="_on_fdImport_file_selected"]
+[connection signal="pressed" from="btnExport" to="." method="_on_btnExport_pressed"]
+[connection signal="file_selected" from="btnExport/fdExport" to="." method="_on_fdExport_file_selected"]
