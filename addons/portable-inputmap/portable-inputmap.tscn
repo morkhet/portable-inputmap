@@ -17,10 +17,11 @@ text = "portable-inputmap by morkhet
 Use the \"Import\" button to import an inputmap from an existing file.
 Use the \"Export\" button to export the current inputmap to a file.
 
-Use the option field to choose the mode for the import.
-OVERRIDE means the imported value is the new value
-ONLY NEW means that only the new values are imported
-BREAK ON ERROR means that the function breaks, when a conflict is detected
+When the \"current config \" and the \"imported config\" share the same element (based on the \"key\"-property) a conflict exists. 
+The import mode definies how to resolve these conflicts. Following modes are available:
+OVERRIDE means that the value from the imported config overrides the value from the current config
+ONLY NEW means that conflicts are ignored and only the new elements from the imported config are imported.
+BREAK ON ERROR means when a conflict is detected, the process stops and no element is imported.
 
 If you find a bug or want to contribute, please use this github repository:
 
