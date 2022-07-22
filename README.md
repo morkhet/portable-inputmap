@@ -1,8 +1,7 @@
 # portable-inputmap
-godot plugin for easy import and export of the inputmap.
+godot plugin for easy import and export of the inputmap. text and binary files are supported.
 
 ## ToDo
- - binary support
  - import "input maps" from other engines like Unity,...
 
 ## Installation
