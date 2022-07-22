@@ -122,6 +122,7 @@ static func get_inputmap_from_binaryfile(file_path: String, cfg_holder: Array):
 			key_value_pair.key = key.substr(str(DEFAULT_INPUT_SECTION+"/").length())
 			key_value_pair.value = value
 			cfg_holder.append(key_value_pair)
+	file.close()
 	return true
 
 static func get_inputmap_from_file(file_path: String, cfg_holder: Array):
